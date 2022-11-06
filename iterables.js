@@ -32,8 +32,16 @@ Object.prototype[Symbol.iterator] = function () {
 	return Object.values(this)[Symbol.iterator]();
 };
 
-var o = { x: 10, y: 20, z: 30 };
+let o = { x: 10, y: 20, z: 30 };
 
 for (let v of o) {
 	console.log(v);
+}
+
+Object.prototype[Symbol.iterator] = function () {
+	return Object.keys(this)[Symbol.iterator]();
+};
+
+for (let k of o) {
+	console.log(o[k]);
 }
