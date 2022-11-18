@@ -21,8 +21,17 @@
 // console.log(iter.next());
 // console.log(iter.next());
 
-var num = 1566;
+var num = "1566";
 
 for (var n of num) {
 	console.log(n);
+}
+
+const makeIterGen = (arr, i)=>{
+	let i = -1
+function* gen(){
+	i++
+	res = yield(arr[i])
+}
+return res
 }
