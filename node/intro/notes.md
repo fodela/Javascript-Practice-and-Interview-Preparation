@@ -13,3 +13,14 @@ const packageName = require("package");
 ```js
 module.exports = moduleName;
 ```
+
+### Servers
+
+```js
+// Create server
+const myServer = http.createServer("PORT", (req, res) => {
+  // Some logics
+});
+
+myServer.listen("PORT", () => {});
+```
