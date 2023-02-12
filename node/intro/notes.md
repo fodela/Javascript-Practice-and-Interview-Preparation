@@ -38,5 +38,9 @@ app.get("^/&", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "index.html"));
 });
 
+app.get("old-page(.html)?", (req, res) => {
+  res.redirect(301, path.join(__dirname, "views", "/new-page.html"));
+});
+
 app.listen(PORT, () => {});
 ```
