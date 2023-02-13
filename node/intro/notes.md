@@ -51,7 +51,7 @@ app.get(
     next();
   },
   app.get((req, res) => {
-    res.redirect(301, path.join(__dirname, "views", "/new-page.html"));
+    res.send("Downloading!!!");
   })
 );
 
