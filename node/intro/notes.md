@@ -38,8 +38,14 @@ app.get("^/&", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "index.html"));
 });
 
+// Redirect a page
 app.get("old-page(.html)?", (req, res) => {
   res.redirect(301, path.join(__dirname, "views", "/new-page.html"));
+});
+
+// Add 404 page
+app.get("/*", (req, res) => {
+  res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
 });
 
 app.listen(PORT, () => {});
