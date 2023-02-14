@@ -55,8 +55,24 @@ app.get(
   })
 );
 
+// Function chaining
+const funcOne = (req,res,next)={
+    console.log("One")
+    next()
+}
+const functwo = (req,res,next)={
+    console.log("two")
+    next()
+}
+const funcThree = (req,res)={
+    console.log("Three")
+    res.send("Finished!")
+}
+
+app.get("/chain(.html)?",[funcOne,funcTwo,funcThree])
+
 // Add 404 page
-app.get("/*", (req, res) => {
+app.get("/ *", (req, res) => {
   res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
 });
 
