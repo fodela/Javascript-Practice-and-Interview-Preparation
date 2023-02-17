@@ -23,7 +23,7 @@ Without custom hooks
 */
 import { useContext } from "react";
 // import AuthContext from '../context/AuthContext'
-const { setAuth2 } = useContext(AuthContext);
+const { setAuth } = useContext(AuthContext);
 
 // Create requireAuth component
 import { useLocation, Navigate, Outlet } from "react-router-dom";
