@@ -78,3 +78,40 @@ app.get("/ *", (req, res) => {
 
 app.listen(PORT, () => {});
 ```
+
+### Middlewares
+
+Anything between the request and the response.
+
+#### 3 types of middleware
+
+1. Built in
+
+2. Custom
+3. Third party middlewares
+
+##### Built in middlewares
+
+Use => used to apply middleware to all routes that are coming in.
+
+```js
+app.use(middleware_here);
+```
+
+1. urlencoded => used to deal with url / form data
+
+```js
+app.use(express.urlencoded({ extended: false }));
+```
+
+2. json => used to deal with json data
+
+```js
+app.use(express.json());
+```
+
+3. static => used to serve static files
+
+```js
+app.use(express.static(path.join(__dirname, "public")));
+```
