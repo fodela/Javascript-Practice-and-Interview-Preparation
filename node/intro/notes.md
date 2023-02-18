@@ -43,6 +43,18 @@ app.get("old-page(.html)?", (req, res) => {
   res.redirect(301, path.join(__dirname, "views", "/new-page.html"));
 });
 
+// Route handlers
+app.get(
+  "/download(.html)?",
+  (res, req, next) => {
+    console.log("Navigating to the download page...");
+    next();
+  },
+  app.get((req, res) => {
+    res.redirect(301, path.join(__dirname, "views", "/new-page.html"));
+  })
+);
+
 // Add 404 page
 app.get("/*", (req, res) => {
   res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
