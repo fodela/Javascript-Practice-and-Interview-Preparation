@@ -86,11 +86,10 @@ Anything between the request and the response.
 #### 3 types of middleware
 
 1. Built in
-
 2. Custom
-3. Third party middlewares
+3. Third party
 
-##### Built in middlewares
+##### Built in middleware
 
 Use => used to apply middleware to all routes that are coming in.
 
@@ -114,4 +113,13 @@ app.use(express.json());
 
 ```js
 app.use(express.static(path.join(__dirname, "public")));
+```
+
+##### Custom middleware
+
+```js
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  next();
+});
 ```
