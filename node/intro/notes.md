@@ -72,7 +72,7 @@ const funcThree = (req,res)={
 app.get("/chain(.html)?",[funcOne,funcTwo,funcThree])
 
 // Add 404 page
-app.get("/ *", (req, res) => {
+app.all("*", (req, res) => {
   res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
 });
 
