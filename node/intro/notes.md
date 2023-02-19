@@ -123,3 +123,27 @@ app.use((req, res, next) => {
   next();
 });
 ```
+
+##### Third party
+
+**Cross Origin Resource Sharing**
+
+```js
+const cors = require("cors");
+const whiteList = [
+  "https://www.mysite.com",
+  "http://localhost:3500",
+  "http://localhost:3000",
+];
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (whiteList.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
+```
