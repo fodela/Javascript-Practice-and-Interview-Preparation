@@ -133,7 +133,7 @@ app.use((req, res, next) => {
 
 ##### Third party
 
-**Cross Origin Resource Sharing**
+###### Cross Origin Resource Sharing
 
 ```js
 const cors = require("cors");
@@ -153,4 +153,34 @@ const corsOptions = {
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
+```
+
+### Routes
+
+1. Define a router
+2. Use router.get instead of app.get to get the needed files.
+3. Use the defined route in your server.
+4. Supply static file to the routes
+
+```js
+/* =======Define a router=========*/
+// routes/subdir.js
+const express = require("express");
+const router = express.Router();
+const path = require("path");
+
+router.use("/endpoint", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "views", "subdir", "endpoint.html"));
+});
+
+module.exports = router;
+```
+
+```js
+/* =======Use the define routes in sever=========*/
+// server.js
+app.use("/subdir", require("./routes/subdir.js"));
+
+/* ========Supply static file to the routes========*/
+app.use("/subdir", express.static(path.join(__dirname, "public"))));
 ```
