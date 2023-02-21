@@ -184,3 +184,11 @@ app.use("/subdir", require("./routes/subdir.js"));
 /* ========Supply static file to the routes========*/
 app.use("/subdir", express.static(path.join(__dirname, "public"))));
 ```
+
+### MVC Model Controller
+
+- models => a directory that contains the data for the database
+
+- views => a directory that contains the webpages we want to display
+
+- controllers => a directory that contains the logics. It reads from the views and make changes to the models
