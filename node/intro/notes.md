@@ -206,3 +206,10 @@ app.use("/subdir", express.static(path.join(__dirname, "public"))));
    - Model: use users model created above
    - Views: create an authentication route
    - Controller: create a authController
+
+### JWT Authentication
+
+- An access and a refreshed token is issued at authorization
+- Access token have short half life (minutes to hours) and is used until it expires while a refresh token has a longer half life (days to months)
+
+- The refresh token is used to get a new access token and when the refresh token expires, user have to re-authenticate. Refresh tokens terminate early if user logs out.
