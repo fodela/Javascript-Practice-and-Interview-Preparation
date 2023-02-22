@@ -24,11 +24,19 @@ app.use("/", require("./routes/root"));
 
 app.use("/employees", require("./routes/api/employees"));
 
+app.use("/register", require("./routes/register"));
+
+app.use("/login", require("./routes/auth.ts"));
 // Third party
 // Cross Origin Resource Sharing
 
 app.use(cors(corsOptions));
 
 app.use(errorHandler);
+
+// default page -> 404
+app.all("*", (req, res) =>
+  res.status(404).sendFile(path.join(__dirname, "views", "404.html"))
+);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
