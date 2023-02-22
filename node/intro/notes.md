@@ -213,3 +213,8 @@ app.use("/subdir", express.static(path.join(__dirname, "public"))));
 - Access token have short half life (minutes to hours) and is used until it expires while a refresh token has a longer half life (days to months)
 
 - The refresh token is used to get a new access token and when the refresh token expires, user have to re-authenticate. Refresh tokens terminate early if user logs out.
+
+**NB:**
+
+1. In the frontend, only store the access token in memory. For it is not available to javascript this way.
+2. Send refresh token as http only cookie. Other forms are available to js and hence are vulnerable.
