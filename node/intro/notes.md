@@ -192,3 +192,17 @@ app.use("/subdir", express.static(path.join(__dirname, "public"))));
 - views => a directory that contains the webpages we want to display
 
 - controllers => a directory that contains the logics. It reads from the views and make changes to the models
+
+### User Password Authentication
+
+1. Registration
+
+   - Model: create a users model
+   - Views: create a registration route
+   - Controller: create a registrationController
+
+2. Authentication
+
+   - Model: use users model created above
+   - Views: create an authentication route
+   - Controller: create a authController
